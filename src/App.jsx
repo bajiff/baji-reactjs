@@ -1,15 +1,14 @@
-import Logo from "./assets/logo.png"
+import Company from "./Company";
+import Card from "./Card";
+import FacebookProfile from "./FacebookProfile";
 const App = () => {
   return (
-    <div>
-      <h1>Baji APP hehe</h1>
-      <ul>
-        <li>Nama: Baji Infokan</li>
-        <li>Bidang: Integrated Farm</li>
-        <li>Tagline: Tanaman is Gacor</li>
-        <img src={Logo} alt="Farm Logo" />
-      </ul>
-    </div>
+    <>
+      <Company name="Meki" company="Meki Farm"/>
+      <Company name="Jeki" company="Jeki Farm"/>
+      <FacebookProfile name="Gandi" username="gandi-123" bio="Kamu bahagia aku bahagia" isVerified />
+      <Card>Infokan</Card>
+    </>
   );
 };
 
