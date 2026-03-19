@@ -25,7 +25,7 @@ export default class DigitalClock extends React.Component {
   
  render(){
   return (
-    <h1>Waktu saat ini {this.state.waktu.toLocaleDateString()}</h1>
+    <h1>Waktu saat ini {this.state.waktu.toLocaleTimeString()}</h1>
   )
  } 
 };
