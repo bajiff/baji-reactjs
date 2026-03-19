@@ -34,7 +34,7 @@ const News = () => {
       <Header/>
 
       {someNews.map((news, index) => 
-        <Card key={index} date={news.date} title={news.title} content={news.content} link={news.link} image={news.image} category={news.category} />)
+        <Card key={index} {...news} />)
       }
 
       {/* {someNews.map((news,index) => (

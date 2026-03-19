@@ -1,8 +1,8 @@
-import News from "./someNews/News.jsx";
+import Contact from "./contact-app/Contact.jsx";
 const App = () => {
   return (
     <>
-      <News/>
+      <Contact/>
     </>
   );
 };
