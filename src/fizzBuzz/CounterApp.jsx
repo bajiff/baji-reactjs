@@ -1,5 +1,25 @@
 import React from "react"
 
+export const CounterDisplay = ({ counter }) => {
+  return <p>{counter}</p>
+};
+
+export const IncreaseButton = ({ increase } ) => {
+  return (
+    <div>
+      <button onClick={increase}>Increase</button>
+    </div>
+  );
+};
+
+export const ResetButton = ({ reset }) => {
+  return (
+    <div>
+      <button onClick={reset}>Reset</button>
+    </div>
+  )
+}
+
 export default class CounterApp extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +27,9 @@ export default class CounterApp extends React.Component {
     this.state = {
       count: 0
     };
+    
+    this.onIncreaseEventHandler = this.onIncreaseEventHandler.bind(this)
+    this.onResetEventHandler = this.onResetEventHandler.bind(this);
   };
 
   onIncreaseEventHandler(){
@@ -27,11 +50,11 @@ export default class CounterApp extends React.Component {
  
   render() {
     return (
-      <div>
-        <p>{this.state.count}</p>
-        <button onClick={this.onIncreaseEventHandler}>Increment</button>
-        <button onClick={this.onResetEventHandler}>Reset</button>
-      </div>
+      <>
+        <IncreaseButton increase={this.onIncreaseEventHandler}/>
+        <CounterDisplay counter={this.state.count}/>
+        <ResetButton reset={this.onResetEventHandler}/>
+      </>
     );
   };
 };
