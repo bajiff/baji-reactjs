@@ -15,9 +15,12 @@ export class ContactApp extends Component  {
   
   
   onDeleteEventHandler(id) {
+    // Nampung si contact nya dulu
     const contacts = this.state.contacts.filter(contact => contact.id !== id);
+
+    // ? Lalu ubah dengan this.setState dan masukkan variabel contacts didalamnya
     this.setState({
-      contacts
+      contacts: contacts
     });
   };
   
