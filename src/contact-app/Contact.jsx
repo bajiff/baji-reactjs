@@ -1,28 +1,31 @@
+import DeleteButton from "./DeleteButton";
 import { getData } from "./images";
 
-const Contact = () => {
+const ContactApp = () => {
   const contacts = getData();
   return (
     <section className="contact-app">
       <h1>Daftar Kontak</h1>
-      <ContactContainer contacts={contacts}/>
+      <ContactList contacts={contacts}/>
     </section>
   );
 };
 
-const ContactContainer = ({contacts}) => {
+const ContactList = ({contacts, onDelete}) => {
   return (
     <section className="contact-list">
-      {contacts.map(contact => <ContactCard image={contact.image} name={contact.name} username={contact.username}/>) }
+      {contacts.map(contact => 
+      <ContactItem key={contact.id} id={contact.id} onDelete={onDelete} {...contact} />) }
     </section>
   );
 };
 
-const ContactCard = ({image,name,username}) => {
+const ContactItem = ({image,name,username,id,onDelete}) => {
   return (
     <section className="contact-item">
       <ContactImage image={image} />
       <ContactDetail name={name} username={username} />
+      <DeleteButton id={id} onDelete={onDelete} />
     </section>
   );
 };
@@ -44,4 +47,4 @@ const ContactDetail = ({ name, username }) => {
   );
 };
 
-export default Contact;
+export default ContactApp;
