@@ -1,6 +1,5 @@
-import { Component } from 'react'
-
-export default class MyForm extends Component {
+import React from "react";
+export default class MyForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,8 +10,9 @@ export default class MyForm extends Component {
     };
     
     this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
-    this.onNameChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
+    this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
     this.onGenderChangeEventHandler = this.onGenderChangeEventHandler.bind(this);
+    this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
   };
   
   onNameChangeEventHandler(event) {
@@ -32,18 +32,30 @@ export default class MyForm extends Component {
   };
   
   onGenderChangeEventHandler(event) {
-    this.setState((previousState) => {
+    this.setState(() => {
       return {
         gender: event.target.value
       };
     });
+  };
+  
+  onSubmitEventHandler(event) {
+    event.preventDefault();
+
+    const message = `
+    Name: ${this.state.name}
+    Email: ${this.state.email}
+    Gender: ${this.state.gender}
+    `
+    alert(message);
+
   };
 
   render() {
     return (
       <div>
         <h1>Register Form</h1>
-        <form>
+        <form onSubmit={this.onSubmitEventHandler}>
           <label htmlFor="name">Name: </label>
           <input id="name" value={this.state.name} onChange={this.onNameChangeEventHandler} required autoFocus type="text" />
           <br />
@@ -60,6 +72,6 @@ export default class MyForm extends Component {
         </form>
       </div>
     );
-  }
-}
+  };
+};
  
