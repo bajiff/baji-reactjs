@@ -6,9 +6,11 @@ import SayHello from "./stateful/SayHello.jsx";
 import Counter from "./stateful/Counter.jsx";
 import CounterApp from "./fizzBuzz/CounterApp.jsx";
 import Contact from "./contact-app/Contact.jsx";
+import MyForm from "./my-form/MyForm.jsx";
+
 const App = () => {
   return (
-    <Contact/>
+    <MyForm />
   );
 };
 
